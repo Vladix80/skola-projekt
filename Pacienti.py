@@ -8,14 +8,8 @@ conn = pyodbc.connect(
     "Trusted_Connection=yes;"
 )
 
-dotaz = "SELECT * FROM dbo.Študenti"
+dotaz = "SELECT * FROM dbo.Pacienti"
 df = pd.read_sql(dotaz, conn)
 
 pd.set_option('display.max_columns', None)
 print(df.head())
-
-print(df[df["Ročník"] == 1])
-
-df.to_excel("studenti.xlsx", index=False)
-
-
